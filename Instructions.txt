@@ -1,0 +1,42 @@
+NOTES:
+
+In Category view:
+1. Update button is used for update categories, parents and children map 
+after uploading a new file which will generated with its metadata.
+
+2. Port Can be set greater than 8002, cause i set server port is 8001.
+
+In File Metadata view:
+1. When we click item in DocumentlistBox in Category view, TextQueryResultListbox
+or MetadataQueryResultListBox that are in Query view,
+we can click this File Metadata view to check the content of file and its metadata.
+
+2. Also in this view, we can extract current file to "RemoteVault\Client_WPF\bin\DownloadFiles" Folder.
+
+In Upload View:
+1. the category is given by the repository, here, the client can choose
+at least one category for this file to be uploaded.
+
+2. KeyWords Format: "/Kxxx /Kxxx" 
+For example : /K123 /K234 
+
+3. When you upload it, you can go back category view and push update
+to check the result.
+
+In EditMetadata View:
+1. can only update a existed metadata in the repository.
+
+2. We need to choose a file in the Category view, just choose one item
+in document Listbox in Category view. And then the Current file in this
+EditMetadata View will changed.
+This is how we specified one metadata file which to be re-edit.
+
+3. when you finished editing, you can go back category view and file& 
+metadata View to check the result.
+
+In Query View:
+1. Just follow the Format for TextQuery And MetadataQuery.
+
+2. When you select one item in TextQueryResultBox or metadataQueryResult
+-ListBox, then you can go back File Metadata View to check the contents
+of selected result.

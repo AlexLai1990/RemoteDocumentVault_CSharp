@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This is XML file for test_Meata-->
+<File>
+  <Description>test</Description>
+  <KeyWords>words_2</KeyWords>
+  <Dependency>b.cpp</Dependency>
+</File>

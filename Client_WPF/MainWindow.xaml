@@ -1,0 +1,130 @@
+﻿<Window x:Class="Client_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Client" Height="500" Width="1000"
+        MinHeight="500" MinWidth="1000" MaxHeight="1000" MaxWidth="1300" WindowStyle="SingleBorderWindow"
+        >
+    <Grid>
+        <TabControl Grid.ColumnSpan="2" SelectionChanged="TabControl_SelectionChanged" Name="TabControl">
+            <TabItem Header="Category on server" Height="30" Margin="-2,-1,-2,1" >
+                <Grid Background="LightGray" Margin="0,0,0,-5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="186*" />
+                        <ColumnDefinition Width="157*" />
+                        <ColumnDefinition Width="645*" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Name="Label1" Content="All Categories:" Margin="19,13,79,391"/>
+                    <Button Content="Update" Height="26" VerticalAlignment="Top" Margin="112,13,30,0" Click="Button_Click"/>
+                    <ListBox  Name="CategoryListBox" Margin="26,48,29,0" Height="331" VerticalAlignment="Top" SelectionChanged="CategoryListBox_SelectionChanged" />
+
+                    <Label  Content="Documents:" Grid.Column="1" Margin="10,12,10,349"/>
+                    <ListBox Margin="10,48,10,59" Name="FilesListBox" SelectionChanged="FilesListBox_SelectionChanged" Grid.Column="1"/>
+                    <Label  Content="Children:" Grid.Column="2" Margin="22,207,306,154"/>
+
+                    <Label  Content="Parents:" Grid.Column="2" Margin="22,20,346,328"/>
+
+
+                    <Label  x:Name ="LocalIP" Content="Local IP:" Margin="187,9,265,395" Width="192" Grid.Column="2" />
+                    <Label  Content="Port:" Margin="338,10,252,382" Grid.Column="2"/>
+                    <TextBox x:Name="Port" Grid.Column="2" Text="8002" FontSize="14" Background="White"  Margin="384,13,214,397"   />
+                    <Button x:Name="Connect" Grid.Column="2" Content="Connect" HorizontalAlignment="Right" Margin="0,13,46,0" VerticalAlignment="Top" Width="96" Click="Connect_Click" Height="26"/>
+                    <ListBox Margin="23,48,45,246" x:Name="ParentListBox"   Grid.Column="2" SelectionChanged="ParentListBox_SelectionChanged"/>
+                    <ListBox Margin="23,231,45,59" x:Name="ChildrenListBox"   Grid.Column="2" SelectionChanged="ChildrenListBox_SelectionChanged"/>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="File Metadata" Height="30" Margin="0,-1,-18,1" >
+                <Grid Background="LightGray" Margin="0,0,0,-5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Content:" HorizontalAlignment="Left" Margin="34,9,0,0" VerticalAlignment="Top" Grid.Column="0" RenderTransformOrigin="-0.171,0.327" Width="92"  />
+                    <TextBox Name="FileContent"  Margin="34,40,32,62" Grid.Column="0"   />
+                    <Label Content="Metadata:" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="-0.171,0.327" Width="92"  />
+                    <TextBox Name="MetadataContent"  Margin="23,41,43,62" Grid.Column="1"   />
+                    <Button Content="Extract" HorizontalAlignment="Left" Margin="96,394,0,0" VerticalAlignment="Top" Width="74"  Name="ExtractButton" Click="ExtractButton_Click" Grid.Column="1"/>
+                    <TextBox Name="CurrentFileTextBox" HorizontalAlignment="Left" Height="23" Margin="150,391,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="312"/>
+                    <Label Content="Current File:" HorizontalAlignment="Left" Margin="34,391,0,0" VerticalAlignment="Top" Width="111"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Upload" Height="30" Margin="17,0,-38,0" >
+                <Grid Background="LightGray" Margin="0,0,0,-5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="168*" />
+                        <ColumnDefinition Width="79*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Selected File:" HorizontalAlignment="Left" Margin="58,24,0,0" VerticalAlignment="Top" Height="34" Width="112" FontSize="18"/>
+                    <TextBlock Name="UploadFile" Background="White" HorizontalAlignment="Left" Margin="206,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="424" FontSize="18"/>
+                    <Button  Name="Browser" Content="Browser" Grid.Column="1" HorizontalAlignment="Left" Margin="70,38,0,0" VerticalAlignment="Top" Width="76" Click="Browser_Click"/>
+                    <Button  Name="Upload" Content="Upload" Grid.Column="1" HorizontalAlignment="Left" Margin="168,38,0,0" VerticalAlignment="Top" Width="74" Click="Upload_Click"/>
+                    <Label Content="Description:" HorizontalAlignment="Left" Margin="57,86,0,0" VerticalAlignment="Top" Height="34" Width="111" FontSize="18"/>
+                    <Label Content="Keywords:" HorizontalAlignment="Left" Margin="59,288,0,0" VerticalAlignment="Top" Height="34" Width="111" FontSize="18"/>
+                    <Label Content="Multi-Dependency: (Current Files)" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Height="34" Width="282" FontSize="18" Grid.Column="1"/>
+                    <Label Content="Category:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Height="34" Width="121" FontSize="18" Grid.Column="1" RenderTransformOrigin="0.482,1.176"/>
+
+                    <TextBox Name="DescriptionTextBox" HorizontalAlignment="Left" Height="163" Margin="201,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="424"/>
+                    <TextBox Name="KeywordsTextBox" HorizontalAlignment="Left" Height="128" Margin="201,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" Text="/Kkeyword1 /Kkeyword2" />
+
+                    <ListBox Name="UpDepListBox" Grid.Column="1" SelectionMode="Multiple"   HorizontalAlignment="Left" Height="143" Margin="20,102,0,0" VerticalAlignment="Top" Width="262" SelectionChanged="UpDepListBox_SelectionChanged"/>
+                    <ListBox Name="UpCatListBox" Grid.Column="1" SelectionMode="Multiple"   HorizontalAlignment="Left" Height="132" Margin="20,284,0,0" VerticalAlignment="Top" Width="262" RenderTransformOrigin="0.525,0.066" SelectionChanged="UpCatListBox_SelectionChanged"/>
+                    <Label Content="Format:&#xD;&#xA;/Kxxx /Kxxx" HorizontalAlignment="Left" Margin="59,327,0,0" VerticalAlignment="Top" Height="59" Width="126" FontSize="16"/>
+                    <Label Content="At least choose one Category" Grid.Column="1" HorizontalAlignment="Left" Margin="112,256,0,0" VerticalAlignment="Top" Width="170"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="EditMetadata" Height="30" Margin="37,0,-34,0" >
+                <Grid Background="LightGray" Margin="0,0,0,-5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="168*" />
+                        <ColumnDefinition Width="79*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Description:" HorizontalAlignment="Left" Margin="66,63,0,0" VerticalAlignment="Top" Height="34" Width="111" FontSize="18"/>
+                    <Label Content="Keywords:" HorizontalAlignment="Left" Margin="66,250,0,0" VerticalAlignment="Top" Height="34" Width="111" FontSize="18"/>
+                    <Label Content="Dependency: (Current Files)" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="34" Width="272" FontSize="18" Grid.Column="1"/>
+                    <Label Content="Category:" HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Height="34" Width="111" FontSize="18" Grid.Column="1" RenderTransformOrigin="0.482,1.176"/>
+
+                    <TextBox Name="EditDescriptionTextBox" HorizontalAlignment="Left" Height="143" Margin="66,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="559"/>
+                    <TextBox Name="EditKeywordsTextBox" HorizontalAlignment="Left" Height="132" Margin="66,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="559" Text="/Kkeyword1 /Kkeyword2" />
+
+                    <ListBox Name="EditDepListBox" Grid.Column="1" SelectionMode="Multiple"   HorizontalAlignment="Left" Height="143" Margin="20,102,0,0" VerticalAlignment="Top" Width="262" SelectionChanged="EditDepListBox_SelectionChanged" />
+                    <ListBox Name="EditCatListBox" Grid.Column="1" SelectionMode="Multiple"   HorizontalAlignment="Left" Height="132" Margin="20,284,0,0" VerticalAlignment="Top" Width="262" RenderTransformOrigin="0.525,0.066" SelectionChanged="EditCatListBox_SelectionChanged" />
+                    <Button Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="550,37,0,0" VerticalAlignment="Top" Width="75" Click="UpdateButton_Click"/>
+                    <TextBox x:Name="CurrentFileTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="220,34,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="312"/>
+                    <Label Content="Current File:" HorizontalAlignment="Left" Margin="109,31,0,0" VerticalAlignment="Top" Width="111"/>
+                    <Label Content="For choosing file's metadata , go to Category View to select one file" HorizontalAlignment="Left" Margin="220,63,0,0" VerticalAlignment="Top" Width="405" FontWeight="Bold"/>
+                    <Label Content="Format:  /Kxxx /Kxxx" HorizontalAlignment="Left" Margin="182,250,0,0" VerticalAlignment="Top" Height="60" Width="220" FontSize="16"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Query" Height="30" Margin="35,0,-56,0" >
+                <Grid Background="LightGray" Margin="0,0,0,-5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="493*" />
+                        <ColumnDefinition Width="495*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Text Query" HorizontalAlignment="Left" Margin="34,63,0,0" VerticalAlignment="Top" Grid.Column="0" RenderTransformOrigin="-0.171,0.327" Width="92" Height="26"  />
+                    <Label Content="MetadataQuery:" HorizontalAlignment="Left" Margin="17,63,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="-0.171,0.327" Width="100" Height="26"  />
+                    <Button Name="TextQueryButton" Content="TQuery" HorizontalAlignment="Left" Margin="356,69,0,0" VerticalAlignment="Top" Width="74"  Height="20" Click="TextQueryButton_Click"/>
+                    <Button x:Name="MetadataQueryButton" Content="MQuery" HorizontalAlignment="Left" Margin="385,69,0,0" VerticalAlignment="Top" Width="74"  Height="20" Grid.Column="1" Click="MetadataQueryButton_Click"/>
+                    <TextBox Name="TextQueryArgs" HorizontalAlignment="Left" Height="23" Margin="108,66,0,0" TextWrapping="Wrap" Text="*.txt ../Repository /TThis /Tabc /R /O" VerticalAlignment="Top" Width="232"/>
+                    <TextBox x:Name="MetadataQueryArgs" HorizontalAlignment="Left" Height="23" Margin="122,67,0,0" TextWrapping="Wrap" Text="*.* ../Repository /MKeyWords /R " VerticalAlignment="Top" Width="239" Grid.Column="1"/>
+                    <ListBox Name="TextQueryResult" HorizontalAlignment="Left" Height="276" Margin="34,108,0,0" VerticalAlignment="Top" Width="412" SelectionChanged="TextQueryResult_SelectionChanged"/>
+                    <ListBox Name="MetadataQueryResult" Grid.Column="1" HorizontalAlignment="Left" Height="276" Margin="17,108,0,0" VerticalAlignment="Top" Width="454" SelectionChanged="MetadataQueryResult_SelectionChanged"/>
+                    <Label Content="Formate:      *.txt ../Repository /Tway /Tabc /R /O   (/O is For one or more matching)" HorizontalAlignment="Left" Margin="34,28,0,0" VerticalAlignment="Top" Height="30" Width="459"/>
+                    <Label Content="Formate:        *.* ../Repository /MDescription /R " HorizontalAlignment="Left" Margin="17,32,0,0" VerticalAlignment="Top" Height="30" Width="365" Grid.Column="1"/>
+                    <Label Content="Select one Item, &#xD;&#xA;then you can go back FileMetadata View to check or extract current file." HorizontalAlignment="Left" Margin="31,384,0,0" VerticalAlignment="Top" Width="432" Height="49" FontWeight="Bold"/>
+                    <Label Content="Choices: &#xD;&#xA;Description, KeyWords, &#xD;&#xA;Dependency,Category" Grid.Column="1" HorizontalAlignment="Left" Margin="295,0,0,0" VerticalAlignment="Top" Width="182" Height="64"/>
+                    <Label Content="Select one Item, &#xA;then you can go back FileMetadata View to check or extract current file." HorizontalAlignment="Left" Margin="27,384,0,0" VerticalAlignment="Top" Width="432" Height="49" FontWeight="Bold" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>

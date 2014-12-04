@@ -1,0 +1,5 @@
+C:\Users\Alex_lai\Desktop\CSE681\Project2\Navigate\Test_Navigate\bin\Debug\Test_Navigate.exe.config
+C:\Users\Alex_lai\Desktop\CSE681\Project2\Navigate\Test_Navigate\bin\Debug\Test_Navigate.exe
+C:\Users\Alex_lai\Desktop\CSE681\Project2\Navigate\Test_Navigate\bin\Debug\Test_Navigate.pdb
+C:\Users\Alex_lai\Desktop\CSE681\Project2\Navigate\Test_Navigate\obj\Debug\Test_Navigate.exe
+C:\Users\Alex_lai\Desktop\CSE681\Project2\Navigate\Test_Navigate\obj\Debug\Test_Navigate.pdb
