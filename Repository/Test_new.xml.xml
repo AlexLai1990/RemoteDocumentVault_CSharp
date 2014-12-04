@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This is XML file for Test_new.txt-->
+<File>
+  <Name>Test_new.txt</Name>
+  <Description>new description</Description>
+  <KeyWords>new_key,</KeyWords>
+  <Category>B,A,</Category>
+  <Dependency>B1.txt,A1.txt,A3.txt,A4.txt,APP.PNG,</Dependency>
+</File>

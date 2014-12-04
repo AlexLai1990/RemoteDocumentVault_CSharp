@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This is XML file for APP.PNG-->
+<File>
+  <Name>APP.PNG</Name>
+  <Description>App test</Description>
+  <KeyWords>App,pic,</KeyWords>
+  <Category>TEST,</Category>
+  <Dependency>A1.txt,B1.txt,C1.txt,</Dependency>
+</File>

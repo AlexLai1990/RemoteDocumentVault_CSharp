@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This is XML file for d4-->
+<File>
+  <Name>B2.txt</Name>
+  <KeyWords>file2</KeyWords>
+  <Category>B,</Category>
+  <Dependency>A2.txt,A3.txt,</Dependency>
+</File>

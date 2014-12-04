@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This is XML file for test2 - Copy.txt-->
+<File>
+  <Name>test2 - Copy.txt</Name>
+  <Description>33</Description>
+  <KeyWords>2,</KeyWords>
+  <Category>TEST,</Category>
+  <Dependency>A1.txt,A2.txt,A3.txt,</Dependency>
+</File>
